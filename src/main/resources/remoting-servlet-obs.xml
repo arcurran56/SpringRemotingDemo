@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : remoting-servlet.xml
+    Created on : April 19, 2016, 11:36 AM
+    Author     : Alan
+    Description:
+        Purpose of the document follows.
+-->
+<beans>
+<bean id="greetingServiceImpl" class="org.springremotingdemo.GreetingServiceImpl">
+    <!-- any additional properties, maybe a DAO? -->
+</bean>
+
+<bean name="/GreetingService" 
+class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+    <property name="service" ref="greetingServiceImpl"/>
+    <property name="serviceInterface" value="org.springremotingdemo.GreetingService"/>
+</bean>
+</beans>
